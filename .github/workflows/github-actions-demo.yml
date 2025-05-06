@@ -25,5 +25,5 @@ jobs:
         uses: actions/checkout@v4
         
       - name: List files in repo        
-        uses: ${{ github.repository }}
+        run: ${{ github.repository }}
         
