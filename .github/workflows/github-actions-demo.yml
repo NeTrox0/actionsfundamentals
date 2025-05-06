@@ -1,0 +1,28 @@
+name: GitHub Actions Demo
+
+on:
+  push:
+    branches: [ "main" ]
+    paths-ignore: [.github/**]
+  pull_request:
+    branches: [ "main" ]
+  schedule:
+    - cron: "15 6 * * SUN"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Trigger Event
+        run: ${{ github.event_name }}
+
+      - name: branch name
+        run: ${{ github.ref }}
+        
+      - name: List files in repo        
+        uses: ${{ github.repository }}
+        
