@@ -15,13 +15,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
-
       - name: Trigger Event
         run: ${{ github.event_name }}
 
       - name: branch name
         run: ${{ github.ref }}
+
+      - name: checkout
+        uses: actions/checkout@v4
         
       - name: List files in repo        
         uses: ${{ github.repository }}
